@@ -3,11 +3,12 @@ package org.example;
 import java.util.List;
 import java.util.Optional;
 
-public class AlunoRepositoryFake implements AlunoRepository{
+// Fake, Stub, ..., não chamem isso aqui de Mock
+public class AlunoRepositoryFake implements AlunoRepository {
 
     @Override
     public Optional<Aluno> findByNumeroMatricula(int numeroMatricula) {
-        
+        // REPOSITÓRIO DETERMINÍSTICO
         if(numeroMatricula == 20221111){
             Aluno a = new Aluno();
             a.setNome("Alisson");
@@ -19,8 +20,7 @@ public class AlunoRepositoryFake implements AlunoRepository{
 
     @Override
     public List<Turma> findAllTurmas() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAllTurmas'");
+        return List.of();
     }
     
 }

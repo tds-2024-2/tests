@@ -3,7 +3,10 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Turma {
+// o que faz um objeto ser um objeto?
+// o que deve ter um objeto? ESTADO E COMPORTAMENTO
+
+public class Turma { // O objeto Turma tem estado e comportamento?
 
     private String codigo; // tds-2024-2
     private Disciplina disciplina;
@@ -43,7 +46,9 @@ public class Turma {
         this.periodo = periodo;
     }
 
-    public int getVagas() {
+    // get e setVagas são métodos, mas não são comportamento
+
+    public int getVagas() { // propriedade (é um meio de expor atributo)
         return vagas;
     }
 

@@ -29,15 +29,17 @@ public class MatriculaService {
             throw new DomainException("Aluno " + numeroMatricula + " já matriculado na turma " + turma.getCodigo());
         }
 
+        // aluno existe, turma existe e o aluno não está matriculado nela
         final Disciplina disciplina = turma.getDisciplina();
 
-        if (turma.getNumeroMatriculas() >= turma.getVagas()) {
+        // acabaram as vagas?
+        if (turma.getNumeroMatriculas() >= turma.getVagas()) { // candidato à refatoração
             final List<Turma> historico = turmaRepository.findAllContainingAluno(aluno);
 
             final List<Turma> historicoDisciplina = historico.stream()
                 .filter(t -> t.getDisciplina().equals(disciplina))
                 .toList();
-            
+            // tds-2024-2
             if (historicoDisciplina.stream().anyMatch(
                 t -> t.getMatriculas().stream().anyMatch(m -> Status.APROVADO.equals(m.getStatus())))) {
                 
